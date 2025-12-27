@@ -35,7 +35,7 @@ public class SimulateBattleImpl implements SimulateBattle {
             // Сортировка по убыванию атаки
             allUnits.sort(Comparator.comparingInt(Unit::getBaseAttack).reversed());
 
-            // Проходим по всем юнитам в этом раунде
+            // Проход по всем юнитам в этом раунде
             for (Unit unit : allUnits) {
                 if (!unit.isAlive()) continue;
 
@@ -48,12 +48,11 @@ public class SimulateBattleImpl implements SimulateBattle {
                     // ход игрока
                     printBattleLog.printBattleLog(unit, target);
                 } else {
-                    // ход компьютера → МЕНЯЕМ МЕСТАМИ
+                    // ход компьютера
                     printBattleLog.printBattleLog(target, unit);
                 }
             }
 
-            // Небольшая пауза между раундами для визуализации (можно убрать)
             Thread.sleep(50);
         }
     }
